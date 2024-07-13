@@ -8,9 +8,23 @@
 </head>
 
 <body>
-    <form action="/upload" method="POST" enctype="multipart/form-data">
-        <input type="file" name="img">
-        <input type="submit" value="Save">
+    <form action="/save" method="POST" enctype="multipart/form-data">
+        <div>
+            <label for="">name</label>
+            <input type="text" name="name">
+
+        </div>
+        <div>
+            <label for="">price</label>
+            <input type="number" name="price">
+
+        </div>
+        <div>
+            <label for="">hinh anh</label>
+            <input type="file" name="image">
+
+        </div>
+        <input type="submit" value="submit">
     </form>
     <!-- giải PT bậc 2 -->
     <!-- <form action="/save" method="POST">

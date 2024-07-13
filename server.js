@@ -259,34 +259,50 @@ app.get("/delete", (req, res) => {
   }
 });
 
-app.post("/save", (req, res) => {
-  //lấy giá trị a,b,c người dùng nhập qua form
-  var a = req.body.a;
-  var b = req.body.b;
-  var c = req.body.c;
+app.post("/save", upload.single("image"), (req, res) => {
+  console.log(req.body, req.file);
+  // var name = req.body.name;
+  // var price = req.body.price;
+  // var image = req.file.filename;
 
-  if (a == 0) {
-    if (b == 0) {
-      if (c == 0) {
-        res.send("PT có vô số nghiệm");
-      } else {
-        res.send("PT vô nghiệm");
-      }
-    } else {
-      res.send(`PT có 1 nghiệm là x = ${-c / b}`);
-    }
-  } else {
-    var delta = b * b - 4 * a * c;
-    if (delta < 0) {
-      res.send("PT vô nghiệm");
-    } else if (delta == 0) {
-      res.send(`PT có 2 nghiệm kép x1=x2=${-b / (2 * a)}`);
-    } else {
-      var x1 = (-b - Math.sqrt(delta)) / (2 * a);
-      var x2 = (-b + Math.sqrt(delta)) / (2 * a);
-      res.send(`PT có 2 nghiệm phân biệt x1=${x1} và x2=${x2}`);
-    }
-  }
+  var newProduct = {
+    name: req.body.name,
+    price: req.body.price,
+    image: req.file.filename,
+  };
+
+  db.query("INSERT INTO products SET ?", newProduct, (err, data) => {
+    if (err) throw err;
+    console.log("Create successfully");
+    res.redirect("/list");
+  });
+  //lấy giá trị a,b,c người dùng nhập qua form
+  // var a = req.body.a;
+  // var b = req.body.b;
+  // var c = req.body.c;
+
+  // if (a == 0) {
+  //   if (b == 0) {
+  //     if (c == 0) {
+  //       res.send("PT có vô số nghiệm");
+  //     } else {
+  //       res.send("PT vô nghiệm");
+  //     }
+  //   } else {
+  //     res.send(`PT có 1 nghiệm là x = ${-c / b}`);
+  //   }
+  // } else {
+  //   var delta = b * b - 4 * a * c;
+  //   if (delta < 0) {
+  //     res.send("PT vô nghiệm");
+  //   } else if (delta == 0) {
+  //     res.send(`PT có 2 nghiệm kép x1=x2=${-b / (2 * a)}`);
+  //   } else {
+  //     var x1 = (-b - Math.sqrt(delta)) / (2 * a);
+  //     var x2 = (-b + Math.sqrt(delta)) / (2 * a);
+  //     res.send(`PT có 2 nghiệm phân biệt x1=${x1} và x2=${x2}`);
+  //   }
+  // }
 });
 
 app.listen(port, () => {
