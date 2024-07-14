@@ -17,6 +17,7 @@
                 <th>Name</th>
                 <th>Price</th>
                 <th>Image</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -42,6 +43,10 @@
                         <%= p.price %>
                     </td>
                     <td><img style="height: 100px;" src="images/<%=p.image%>" alt=""></td>
+                    <td>
+                        <a href="/edit/<%=:id%>">Edit</a>
+                        <a href="">Delete</a>
+                    </td>
                 </tr>
                 <% } %>
         </tbody>

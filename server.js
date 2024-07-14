@@ -304,6 +304,10 @@ app.post("/save", upload.single("image"), (req, res) => {
   //   }
   // }
 });
+app.get(`/edit/:id`,(req,res) => {
+  var id = req.params.id;
+
+})
 
 app.listen(port, () => {
   console.log(`SV dang chay o port ${port}`);
