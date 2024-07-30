@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet"
+        href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap");
+
+        :root {
+            --main-color: #dd2f6e;
+            --color-dark: #1d2231;
+            --text-grey: #8390a2;
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            list-style-type: none;
+            text-decoration: none;
+            font-family: "Ponpins", sans-serif;
+        }
+
+        .sidebar {
+            width: 345px;
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 100%;
+            background: var(--main-color);
+            z-index: 100;
+        }
+
+        .sidebar-brand {
+            height: 90px;
+            padding: 1rem 0rem 1rem 2rem;
+            color: #fff;
+        }
+
+        .sidebar-brand span {
+            display: inline-block;
+            padding-right: 1rem;
+        }
+
+        .sidebar-menu {
+            margin-top: 1rem;
+        }
+
+        .sidebar-menu li {
+            width: 100%;
+            margin-bottom: 1.7rem;
+            padding-left: 1rem;
+            align-items: center;
+        }
+
+        .sidebar-menu a {
+            padding-left: 1rem;
+            /* display: block; */
+            color: #fff;
+            font-size: 1.1rem;
+        }
+
+        .sidebar-menu a.active:hover {
+            background: #fff;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            color: var(--main-color);
+            border-radius: 30px 30px 30px 30px;
+        }
+
+        .sidebar-menu a span:first-child {
+            font-size: 1.5rem;
+            padding-right: 1rem;
+        }
+
+        .main-content {
+            margin-left: 345px;
+        }
+
+        /* table */
+
+        body {
+            font-family: "Poppins", sans-serif;
+            overflow: hidden;
+        }
+
+        .table {
+            width: 100%;
+        }
+
+        .table_header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 20px;
+            background-color: rgb(240, 240, 240);
+        }
+
+        .table_header p {
+            color: #000000;
+        }
+
+        button,
+        a {
+            outline: none;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            padding: 10px;
+            color: #ffffff;
+            /* font-size: 12px; */
+        }
+
+        td a:nth-child(1) {
+            background-color: #0298cf;
+        }
+
+        td a:nth-child(2) {
+            background-color: #f80000;
+        }
+
+        .add-new {
+            padding: 10px 20px;
+            color: #ffffff;
+            background-color: #0298cf;
+        }
+
+        input {
+            padding: 10px 20px;
+            margin: 0 10px;
+            outline: none;
+            border: 1px solid #0298cf;
+            border-radius: 6px;
+            color: #0298cf;
+        }
+
+        .table-section {
+            height: 500px;
+            overflow: auto;
+        }
+
+        table {
+            width: 100%;
+            table-layout: fixed;
+            min-width: 900px;
+            border-collapse: collapse;
+        }
+
+        thead th {
+            position: sticky;
+            top: 0;
+            background-color: #f6f9fc;
+            color: #8493a5;
+            font-size: 15px;
+        }
+
+        thead,
+        td {
+            border-bottom: 1px solid #dddddd;
+            padding: 10px 20px;
+            word-break: break-all;
+            text-align: center;
+        }
+
+        td img {
+            height: 60px;
+            width: 60px;
+            object-fit: cover;
+            border-radius: 15px;
+            border: 5px solid #ced0d2;
+        }
+
+        tr:hover td {
+            color: #0298cf;
+            cursor: pointer;
+            background-color: #f6f9fc;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: flex-end;
+            width: 100%;
+            padding: 10px 20px;
+            /* background: #8493a5; */
+        }
+
+        .pagination div {
+            padding: 10px;
+            border: 2px solid #d5d0d0;
+            height: 40px;
+            width: 40px;
+            border-radius: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #0298cf;
+            color: #ffffff;
+            box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.75);
+            margin: 0 5px;
+            cursor: pointer;
+        }
+
+        ::placeholder {
+            color: #0298cf;
+        }
+
+        ::-webkit-scrollbar {
+            height: 5px;
+            width: 5px;
+        }
+
+        ::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="sidebar-brand">
+            <h2><span class="lab la-accusoft"></span>Accusoft</h2>
+        </div>
+        <div class="sidebar-menu">
+            <ul>
+                <li>
+                    <a href="" class="active"><span class="las la-igloo"></span><span>Dashboard</span></a>
+                </li>
+                <li>
+                    <a href="/create" class="active"><span class="las">
+                            <ion-icon name="add-circle-outline"></ion-icon>
+                        </span><span>Add New</span></a>
+                </li>
+                <li>
+                    <a href="" class="active"><span class="las la-users"></span><span>Customers</span></a>
+                </li>
+                <li>
+                    <a href="" class="active"><span class="las la-clipboard-list"></span><span>Projects</span></a>
+                </li>
+                <li>
+                    <a href="" class="active"><span class="las la-shopping-bag"></span><span>Orders</span></a>
+                </li>
+                <li>
+                    <a href="" class="active"><span class="las la-receipt"></span><span>Inventory</span></a>
+                </li>
+                <li>
+                    <a href="" class="active"><span class="las la-user-circle"></span><span>Accounts</span></a>
+                </li>
+                <li>
+                    <a href="" class="active"><span class="las la-clipboard-list"></span><span>Tasks</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="main-content">
+        <div class="table">
+            <div class="table_header">
+                <p>Dashboard</p>
+                <div>
+                    <input placeholder="Product">
+                    <!-- <button class="add-new">+ Add New </button> -->
+                    <a class="add-new" href="/create">+ Add New</a>
+                </div>
+            </div>
+            <div class="table-section">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Image</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(let p of pros) { %>
+                            <tr>
+                                <td>
+                                    <%= p.id %>
+                                </td>
+                                <td>
+                                    <%= p.name %>
+                                </td>
+                                <td>
+                                    <%= p.price %>
+                                </td>
+                                <td><img src="images/<%=p.image%>" alt=""></td>
+                                <td>
+                                    <a href="/edit/<%=p.id%>"><ion-icon name="create-outline"></ion-icon></a>
+                                    <a onclick="return confirm('Are you sure?')" href="/delete/<%=p.id%>"><ion-icon
+                                            name="trash-outline"></ion-icon></a>
+                                </td>
+                            </tr>
+                            <% } %>
+                                <!-- <tr>
+                                    <td>1</td>
+                                    <td><img src="" alt="">
+                                    </td>
+                                    <td>Camera</td>
+                                    <td>truongson@gmail.com
+                                    </td>
+                                    <td>
+                                        <button><ion-icon name="create-outline"></ion-icon></button>
+                                        <button><ion-icon name="trash-outline"></ion-icon></button>
+                                    </td>
+                                </tr> -->
+
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

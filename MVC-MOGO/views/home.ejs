@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <title>Shop Cua Son</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: sans-serif;
+            margin: 0 auto;
+        }
+
+        .container {
+            padding: 0 30px;
+        }
+
+        .header {
+            display: flex;
+            height: 85px;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .left {
+            display: flex;
+
+            img {
+                margin-right: 15px;
+            }
+
+            .nav {
+                align-items: center;
+                margin: auto 0;
+
+                ul {
+                    display: flex;
+
+                    li {
+                        list-style: none;
+                        padding: 0 20px;
+                        font-size: 15px;
+
+                        a {
+                            text-decoration: none;
+                            color: #000;
+
+                            &:hover {
+                                color: #ff3048;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .right {
+            a {
+                padding: 0 15px;
+                font-size: 28px;
+                color: #000;
+
+                &:hover {
+                    color: #ff3048;
+                }
+            }
+        }
+
+        .bts2021 {
+            margin-top: 32px;
+        }
+
+        .tieude {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            /* background-color: antiquewhite; */
+            .tieude1 {
+                display: flex;
+                align-items: center;
+            }
+
+            .tieude2 {
+                ul {
+                    display: flex;
+
+                    li {
+                        list-style: none;
+                        display: grid;
+                        grid-template-columns: auto auto auto auto;
+                        gap: 16px;
+
+                        a {
+                            font-size: 14px;
+                            text-decoration: none;
+                            color: #000;
+
+                            &:hover {
+                                color: #ff3048;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .tieude3 {
+                a {
+                    background-color: rgb(147, 149, 152);
+                    padding: 5px 10px;
+                    border-radius: 5px;
+                    text-decoration: none;
+                    color: white;
+                    font-size: 14px;
+
+                    &:hover {
+                        background-color: #ff3048;
+                    }
+                }
+            }
+        }
+
+        hr {
+            margin: 15px 0;
+        }
+
+        .red {
+            width: 6px;
+            height: 30px;
+            background-color: #ff3048;
+            margin-right: 16px;
+        }
+
+        h2 {
+            font-size: 30px;
+            color: #ff3048;
+
+            &:hover {
+                color: black;
+            }
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+            gap: 24px;
+            text-align: center;
+        }
+
+        .product-content {
+            img {
+                width: 100%;
+            }
+        }
+
+        .title-1 {
+            margin-top: 10px;
+            margin-bottom: 5px;
+            height: 36px;
+            font-size: 14px;
+        }
+
+        .product-image img {
+            border-radius: 8px;
+        }
+
+        .product-item {
+            span {
+                color: #ff3048;
+                font-weight: 600;
+                margin-right: 16px;
+            }
+
+            del {
+                font-size: 14px;
+                color: #8a8a8a;
+            }
+        }
+
+        .selling {
+            margin-top: 30px;
+            /* background-color: #8a8a8a; */
+        }
+
+        .product-content {
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+
+        .product-content button {
+            margin-top: 10px;
+            border: 1px solid #ff3048;
+            width: 100%;
+            padding: 10px 20px;
+            color: #ff3048;
+            background-color: white;
+        }
+
+        .product-content button:hover {
+            background-color: #ff3048;
+            color: white;
+            font-weight: 500;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="container header">
+        <div class=" left">
+            <a href="index.html"><img src="../images/logo.webp" alt=""></a>
+            <div class="nav">
+                <ul>
+                    <li><a href="" style="color: #ff3048;">Trang chủ</a></li>
+                    <li><a href="">Sản phẩm</a></li>
+                    <li><a href="">Giày nam</a></li>
+                    <li><a href="">Giày nữ</a></li>
+                    <li><a href="">Big sale</a></li>
+                    <li><a href="">Tin tức</a></li>
+                    <li><a href="">Liên hệ</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class=" left">
+            <div class=" right">
+                <a href=""><ion-icon name="search-outline"></ion-icon></a>
+                <a href=""><ion-icon name="person-outline"></ion-icon></a>
+                <a href=""><ion-icon name="cart-outline"></ion-icon></a>
+            </div>
+    </header>
+    <div class="slider">
+        <img src="../images/slider_1.webp" alt="">
+    </div>
+    <main>
+        <div class="container bts2021">
+            <div class="tieude">
+                <div class="tieude1">
+                    <div class="red"></div>
+                    <h2>DANH SACH SAN PHAM</h2>
+                </div>
+                <div class="tieude2">
+                    <ul>
+                        <li><a href="">Giày nam</a></li>
+                        <li><a href="">Giày nữ</a></li>
+                        <li><a href="">Giày công sở</a></li>
+                        <li><a href="">Street wear</a></li>
+                    </ul>
+                </div>
+                <div class="tieude3">
+                    <a href="">Xem tất cả</a>
+                </div>
+            </div>
+            <hr>
+            <div class="products">
+                <% for(let p of pros) { %>
+                    <div class="product-content">
+                        <div class="product-image">
+                            <img src="images/<%=p.image%>" alt="">
+                        </div>
+                        <div class="product-item">
+                            <p class="title-1">
+                                <%= p.name %>
+                            </p>
+                            <p class="title-2"><span>
+                                    <%= p.price %>
+                                </span></p>
+                            <button>Mua ngay</button>
+                        </div>
+                    </div>
+                    <% } %>
+
+
+            </div>
+        </div>
+        <!-- <div class="container selling">
+            <div class="tieude">
+                <div class="tieude1">
+                    <div class="red"></div>
+                    <h2>TOP BÁN CHẠY</h2>
+                </div>
+                <div class="tieude2">
+                    <ul>
+                        <li><a href="">Giày nam</a></li>
+                        <li><a href="">Giày nữ</a></li>
+                        <li><a href="">Giày công sở</a></li>
+                        <li><a href="">Street wear</a></li>
+                    </ul>
+                </div>
+                <div class="tieude3">
+                    <a href="">Xem tất cả</a>
+                </div>
+            </div>
+            <hr>
+            <div class="selling"></div>
+        </div> -->
+    </main>
+</body>
+
+</html>

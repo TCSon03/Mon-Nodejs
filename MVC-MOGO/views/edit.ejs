@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet"
+        href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <title>Thêm mới</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap");
+
+        .table_header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 20px;
+            background-color: rgb(240, 240, 240);
+        }
+
+        button,
+        a {
+            outline: none;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            padding: 10px;
+            color: #ffffff;
+            /* font-size: 12px; */
+        }
+
+        .table_header p {
+            color: #000000;
+        }
+
+        :root {
+            --main-color: #dd2f6e;
+            --color-dark: #1d2231;
+            --text-grey: #8390a2;
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            list-style-type: none;
+            text-decoration: none;
+            font-family: "Ponpins", sans-serif;
+        }
+
+        .sidebar {
+            width: 345px;
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 100%;
+            background: var(--main-color);
+            z-index: 100;
+        }
+
+        .sidebar-brand {
+            height: 90px;
+            padding: 1rem 0rem 1rem 2rem;
+            color: #fff;
+        }
+
+        .sidebar-brand span {
+            display: inline-block;
+            padding-right: 1rem;
+        }
+
+        .sidebar-menu {
+            margin-top: 1rem;
+        }
+
+        .sidebar-menu li {
+            width: 100%;
+            margin-bottom: 1.7rem;
+            padding-left: 1rem;
+            align-items: center;
+        }
+
+        .sidebar-menu a {
+            padding-left: 1rem;
+            /* display: block; */
+            color: #fff;
+            font-size: 1.1rem;
+        }
+
+        .sidebar-menu a.active:hover {
+            background: #fff;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            color: var(--main-color);
+            border-radius: 30px 30px 30px 30px;
+        }
+
+        .sidebar-menu a span:first-child {
+            font-size: 1.5rem;
+            padding-right: 1rem;
+        }
+
+        .main-content {
+            margin-left: 345px;
+        }
+
+        .add-new {
+            padding: 10px 20px;
+            color: #ffffff;
+            background-color: #0298cf;
+        }
+
+        .container-form {
+            padding: 30px;
+        }
+
+        form {
+            width: 100%;
+            /* height: 100vh; */
+        }
+
+        .form-group {
+            margin: 10px 0;
+
+            img {
+                margin-top: 10px;
+                width: 300px;
+                height: 300px;
+            }
+        }
+
+        input {
+            width: 100%;
+            padding: 10px 20px;
+            border: 1px solid #0298cf;
+            border-radius: 6px;
+            color: #0298cf;
+        }
+
+        .btn {
+            margin-top: 10px;
+            width: 100%;
+            padding: 10px 20px;
+            border: 1px solid #0298cf;
+            border-radius: 6px;
+            color: #fff;
+            background-color: #0298cf;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="sidebar-brand">
+            <h2><span class="lab la-accusoft"></span>Accusoft</h2>
+        </div>
+        <div class="sidebar-menu">
+            <ul>
+                <li>
+                    <a href="/admin" class="active"><span class="las la-igloo"></span><span>Dashboard</span></a>
+                </li>
+                <li>
+                    <a href="/create" class="active"><span class="las">
+                            <ion-icon name="add-circle-outline"></ion-icon>
+                        </span><span>Add New</span></a>
+                </li>
+                <li>
+                    <a href="" class="active"><span class="las la-users"></span><span>Customers</span></a>
+                </li>
+                <li>
+                    <a href="" class="active"><span class="las la-clipboard-list"></span><span>Projects</span></a>
+                </li>
+                <li>
+                    <a href="" class="active"><span class="las la-shopping-bag"></span><span>Orders</span></a>
+                </li>
+                <li>
+                    <a href="" class="active"><span class="las la-receipt"></span><span>Inventory</span></a>
+                </li>
+                <li>
+                    <a href="" class="active"><span class="las la-user-circle"></span><span>Accounts</span></a>
+                </li>
+                <li>
+                    <a href="" class="active"><span class="las la-clipboard-list"></span><span>Tasks</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="main-content">
+        <div class="table_header">
+            <p>Edit Product</p>
+            <div>
+                <a class="add-new" href="/admin">Back</a>
+            </div>
+        </div>
+        <div class="container-form">
+            <form action="/update/<%=product.id%>" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="">Name :</label>
+                    <input type="text" name="name" value="<%=product.name %>">
+                </div>
+                <div class="form-group">
+                    <label for="">Price :</label>
+                    <input type="number" name="price" value="<%=product.price %>">
+                </div>
+                <div class="form-group">
+                    <label for="">Image :</label>
+                    <input type="file" name="image">
+                    <% if (product.image) { %>
+                        <img src="/images/<%=product.image%>" alt="">
+                        <% } %>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save">
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
