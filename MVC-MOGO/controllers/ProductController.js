@@ -25,12 +25,19 @@ exports.getList = async (req, res) => {
   }
 };
 
-//lấy thông tin chi tiết
+//lấy thông tin chi tiết admin/edit
 exports.getDetail = async (req, res) => {
   var id = req.params.id;
   var product = await Product.findById(id);
 
   res.render("edit", { product });
+};
+//lấy thông tin chi tiết
+exports.getProductDetail = async (req, res) => {
+  var id = req.params.id;
+  var product = await Product.findById(id);
+
+  res.render("productDetail", { product });
 };
 //điều hướng sang form tạo mới
 exports.create = (req, res) => {

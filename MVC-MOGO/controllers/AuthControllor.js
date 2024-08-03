@@ -1,6 +1,15 @@
 const User = require("../models/UserModel");
 const bcrypt = require("bcryptjs"); //mã hóa password
 const jwt = require("jsonwebtoken");
+
+// Routes to render registration and login pages
+exports.getRegister = (req, res) => {
+  res.render("register");
+};
+
+exports.getLogin = (req, res) => {
+  res.render("login");
+};
 exports.register = async (req, res) => {
   try {
     //kiểm tra email đã tồn tại trong hệ thống hay chưa
@@ -8,7 +17,6 @@ exports.register = async (req, res) => {
     if (existedEmail) {
       return res.status(400).json({ message: "Email đã tồn tại" });
     }
-
     var hashedPassword = await bcrypt.hash(req.body.password, 10); //mã hóa password với bcrypt
     //lưu dữ liệu vào trong database
     const newUser = await User.create({

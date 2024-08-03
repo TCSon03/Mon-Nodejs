@@ -32,6 +32,9 @@ mongoose
   .then((result) => {
     //router website
     app.get("/home", ProductController.getListClient);
+    app.get("/productDetail/:id", ProductController.getProductDetail);
+
+    //router admin website
     app.get("/admin", ProductController.getList);
     app.get("/create", ProductController.create);
     app.get("/edit/:id", ProductController.getDetail);
@@ -39,7 +42,11 @@ mongoose
     app.post("/update/:id", upload.single("image"), ProductController.update);
     app.get("/delete/:id", ProductController.delete);
 
-    //router dang ki dang nhap
+    // router register login
+    app.get("/register", AuthController.getRegister);
+    app.get("/login", AuthController.getLogin);
+
+    //router API dang ki dang nhap
     app.post("/register", AuthController.register);
     app.post("/login", AuthController.login);
 
